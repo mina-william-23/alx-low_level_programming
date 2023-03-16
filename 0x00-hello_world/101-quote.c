@@ -10,6 +10,6 @@ int main(void)
 {
 	char phrase[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 
-	fwrite(phrase, sizeof(phrase), sizeof(char), stderr);
+	fwrite(phrase, sizeof(phrase), sizeof(char), Stderr);
 	return (1);
 }
