@@ -10,6 +10,6 @@ int main(void)
 {
 	char tsk[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	fwrite(tsk, sizeof(tsk), sizeof(char), stderr);
+	fwrite(tsk, sizeof(tsk)-1, sizeof(char), stderr);
 	return (1);
 }
