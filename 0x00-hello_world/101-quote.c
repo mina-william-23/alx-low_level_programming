@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-	char phrase[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	char tsk[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	fwrite(phrase, sizeof(phrase), sizeof(char), stderr);
+	fwrite(tske, sizeof(tsk), sizeof(char), stderr);
 	return (1);
 }
