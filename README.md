@@ -1,1 +1,1 @@
-# c-programming-head-start
+# C programming tasks
