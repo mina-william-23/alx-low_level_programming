@@ -24,5 +24,6 @@ int main(void)
 			printf(", ");
 		cnt++;
 	}
+	printf("\n");
 	return (0);
 }
