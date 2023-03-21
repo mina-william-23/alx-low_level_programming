@@ -14,7 +14,7 @@ void print_to_98(int n)
 
 	if (n > 98)
 		increment  = -1;
-	if (start = 98)
+	if (start == 98)
 	{
 		printf("%d\n", start);
 	}
@@ -25,6 +25,6 @@ void print_to_98(int n)
 			printf("%d, ", start);
 			start += increment;
 		}
-		printf("%d", 98);
+		printf("%d\n", 98);
 	}
 }
