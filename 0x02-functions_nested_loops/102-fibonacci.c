@@ -9,14 +9,14 @@
 
 int main(void)
 {
-	unsigned long long n1 = 1, n2 = 2, fib = n1 + n2, cnt = 3;
+	long int n1 = 1, n2 = 2, fib = n1 + n2, cnt = 3;
 
-	printf("%lu, ", n1);
-	printf("%lu, ", n2);
+	printf("%ld, ", n1);
+	printf("%ld, ", n2);
 
 	while (cnt <= 50)
 	{
-		printf("%lu", fib);
+		printf("%ld", fib);
 		n1 = n2;
 		n2 = fib;
 		fib = n1 + n2;
