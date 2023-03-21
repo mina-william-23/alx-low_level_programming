@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * main - main function
+ * print_alphabet - print alphabet function
  *
- * DESCRIPTION: prints "lowercase alphabet" using _putchar function
+ * DESCRIPTION: prints "lowercase alphabet" usinh print_alphabet function
  * Return: (0) success
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	char letter = 'a';
 
