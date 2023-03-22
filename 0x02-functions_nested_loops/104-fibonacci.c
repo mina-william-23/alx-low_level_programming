@@ -9,11 +9,11 @@
 
 int main(void)
 {
-	unsigned long int t = 1, j = 1, t1 = 0, t2 = 1, j1 = 0, j2 = 1;
+	unsigned long int t = 1, j = 1, t1 = 0, t2 = 1, j1 = 0, j2 = 1, i;
 	
-	for(int i=0; i<90; i++)
+	for(i=0; i<90; i++)
 	{
-		printf("%lu ,", t);
+		printf("%lu, ", t);
 		t = t + j;
 		j = t - j;
 	}
@@ -23,9 +23,11 @@ int main(void)
 	t2 = t % 1000000000;
 	j2 = j % 1000000000;
 	
-	for (i = 0; i < 98; i++)
+	for (i = 90; i < 98; i++)
 	{
-		printf("%lu%lu ,",(t1 + (t2/1000000000)), (t2%1000000000));
+		printf("%lu%lu",(t1 + (t2/1000000000)), (t2%1000000000));
+		if (i != 97)
+			printf(", ");
 		t1 = t1 + j1;
 		j1 = t1 - j1;
 		t2 = t2 + j2;
