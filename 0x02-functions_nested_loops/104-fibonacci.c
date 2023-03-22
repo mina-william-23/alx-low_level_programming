@@ -9,20 +9,27 @@
 
 int main(void)
 {
-	unsigned long int n1 = 1, n2 = 2, fib = n1 + n2, cnt = 3;
-
-	printf("%lu, ", n1);
-	printf("%lu, ", n2);
-
-	while (cnt <= 98)
+	unsigned long int t = 1, j = 1, t1 = 0, t2 = 1, j1 = 0, j2 = 1;
+	
+	for(int i=0; i<90; i++)
 	{
-		printf("%lu", fib);
-		n1 = n2;
-		n2 = fib;
-		fib = n1 + n2;
-		if (cnt < 98)
-			printf(", ");
-		cnt++;
+		printf("%lu ,", t);
+		t = t + j;
+		j = t - j;
+	}
+	
+	t1 = t / 1000000000;
+	j1 = j / 1000000000;
+	t2 = t % 1000000000;
+	j2 = j % 1000000000;
+	
+	for (i = 0; i < 98; i++)
+	{
+		printf("%lu%lu ,",(t1 + (t2/1000000000)), (t2%1000000000));
+		t1 = t1 + j1;
+		j1 = t1 - j1;
+		t2 = t2 + j2;
+		j2 = t2 - j2;
 	}
 	printf("\n");
 	return (0);
