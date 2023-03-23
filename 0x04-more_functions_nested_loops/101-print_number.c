@@ -10,28 +10,15 @@
 
 void print_number(int n)
 {
-	unsigned int old, rev = 0;
+	unsigned int old = n;
 
 	if (n < 0)
-		old = -1 * n;
-	else
-		old = n;
-
-	while (old != 0)
 	{
-		rev *= 10;
-		rev += old % 10;
-		old  /= 10;
-	}
-	if (n < 0)
+		old = -old;
 		_putchar('-');
-	while (rev != 0)
-	{
-		_putchar('0' + (rev % 10));
-		rev /= 10;
 	}
-	if (n == 0)
-		_putchar('0');
 
-
+	if (old / 10 > 0)
+		print_number(old / 10);
+	_putchar('0' + (old % 10));
 }
