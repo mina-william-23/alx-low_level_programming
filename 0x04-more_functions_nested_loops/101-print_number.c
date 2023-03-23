@@ -15,7 +15,7 @@ void print_number(int n)
 	if (old < 0)
 		old *= -1;
 
-	while (old)
+	while (old != 0)
 	{
 		rev *= 10;
 		rev += old % 10;
@@ -23,7 +23,7 @@ void print_number(int n)
 	}
 	if (n < 0)
 		_putchar('-');
-	while (rev)
+	while (rev != 0)
 	{
 		_putchar('0' + (rev % 10));
 		rev /= 10;
