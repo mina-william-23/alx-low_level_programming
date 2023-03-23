@@ -10,10 +10,12 @@
 
 void print_number(int n)
 {
-	int old = n, rev = 0;
+	unsigned int old, rev = 0;
 
-	if (old < 0)
-		old *= -1;
+	if (n < 0)
+		old = -1 * n;
+	else
+		old = n;
 
 	while (old != 0)
 	{
