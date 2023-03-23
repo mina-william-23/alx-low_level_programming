@@ -2,6 +2,7 @@
 
 /**
  * print_line - print line with _putchar
+ * @n: number of '_'
  */
 
 void print_line(int n)
