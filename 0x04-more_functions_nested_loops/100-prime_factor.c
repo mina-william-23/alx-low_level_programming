@@ -14,7 +14,7 @@ double _sqroot(double n)
 	while (j != i)
 	{
 		i = j;
-		j = (n / i + i) / 2);
+		j = (n / i + i) / 2;
 	}
 	return (j);
 }
@@ -30,7 +30,6 @@ void largest_prime_factor(long int n)
 
 	while (n % 2 == 0)
 	{
-		cout << 2 << " ";
 		n = n / 2;
 	}
 	for (prime_num = 3; prime_num <= _sqroot(n); prime_num = prime_num + 2)
