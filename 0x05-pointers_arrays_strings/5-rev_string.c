@@ -34,7 +34,6 @@ void rev_string(char *s)
 	length = _strlen(s);
 	if (length <= 0)
 		return;
-	
 	for (i = 0; i < length / 2; i++)
 	{
 		c = s[i];
