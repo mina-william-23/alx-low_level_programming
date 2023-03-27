@@ -30,13 +30,8 @@ void print_rev(char *s)
 {
 	int length;
 
-	length = _strlen(s);
-	if (length <= 0)
-		return;
+	length = _strlen(s) - 1;
 	while (length != -1)
-	{
-		_putchar(*(s + length));
-		length--;
-	}
+		_putchar(s[length--]);
 	_putchar('\n');
 }
