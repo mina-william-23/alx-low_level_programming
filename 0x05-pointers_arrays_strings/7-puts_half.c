@@ -32,6 +32,8 @@ void puts_half(char *s)
 
 	length = _strlen(s);
 	half_length = length / 2;
+	if (length % 2 == 1)
+		half_length++;
 	while (half_length < length)
 		_putchar(s[half_length++]);
 	_putchar('\n');
