@@ -21,8 +21,6 @@ char *_strncpy(char *dest, char *src, int n)
 
 		if (*src)
 			src++;
-		else
-			break;
 
 		dest++;
 		count++;
