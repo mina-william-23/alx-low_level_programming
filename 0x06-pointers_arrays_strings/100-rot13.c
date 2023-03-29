@@ -8,13 +8,20 @@
 char *rot13(char *str)
 {
 	char *s = str;
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char decode[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+	int i;
 
 	while (*s)
 	{
-		if (*s >= 'a' && *s <= 'z')
-			*s = (*s - 'a' + 13) % 26 + 'a';
-		else if (*s >= 'A' && *s <= 'Z')
-			*s = (*s - 'A' + 13) % 26 + 'A';
+		for (i = 0; i < 52; i++)
+		{
+			if (alphabet[i] == *s)
+			{
+				*s = decode[i];
+				break;
+			}
+		}
 		s++;
 	}
 
