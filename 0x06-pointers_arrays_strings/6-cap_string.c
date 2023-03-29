@@ -8,13 +8,13 @@
 char *cap_string(char *str)
 {
 	char *current;
-	char sep[] = " \t\n,;.?!\"(){}";
+	char sep[] = " \t\n,.?!\"(){}";
 	int i, flag = 1;
 
 	current = str;
 	while (*current)
 	{
-		for (i = 0; i < 13; i++)
+		for (i = 0; i < 12; i++)
 		{
 			if (sep[i] == *current)
 			{
