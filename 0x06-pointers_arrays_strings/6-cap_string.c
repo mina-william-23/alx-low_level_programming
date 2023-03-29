@@ -7,11 +7,10 @@
 */
 char *cap_string(char *str)
 {
-	char *current;
+	char *current = str;
 	char sep[] = " \t\n,.;?!\"(){}";
 	int i, flag = 1;
 
-	current = str;
 	while (*current)
 	{
 		for (i = 0; i < 13; i++)
@@ -24,7 +23,7 @@ char *cap_string(char *str)
 		}
 		if (*current >= 'a' && *current <= 'z' && flag)
 		{
-			*current = *current - 'a' + 'A';
+			*current -= 32;
 			flag = 0;
 		}
 		current++;
