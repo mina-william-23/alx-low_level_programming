@@ -8,8 +8,8 @@ char *leet(char *str)
 {
 	char *s = str;
 	unsigned int i;
-	char *letters[] = { 'a', 'e', 'o', 't', 'l' };
-	char *encode[] = { '4', '3', '0', '7', '1' };
+	char letters[] = { 'a', 'e', 'o', 't', 'l' };
+	char encode[] = { '4', '3', '0', '7', '1' };
 
 
 	while (*s)
