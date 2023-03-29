@@ -7,31 +7,26 @@
 */
 char *cap_string(char *str)
 {
-	char before, *current;
+	char *current;
+	char sep[] = " \t\n,;.?!\"(){}";
+	int i, flag = 1;
 
-	before = '\0';
 	current = str;
 	while (*current)
 	{
-		switch (before)
+		for (i = 0; i < 13; i++)
 		{
-			case ' ':
-			case '\t':
-			case '\n':
-			case ',':
-			case ';':
-			case '.':
-			case '?':
-			case '!':
-			case '\"':
-			case '(':
-			case ')':
-			case '{':
-			case '}':
-					if (*current >= 'a' && *current <= 'z')
-						*current  = *current - 'a' + 'A';
+			if (sep[i] == *current)
+			{
+				flag = 1;
+				break;
+			}
 		}
-		before = *current;
+		if (*current >= 'a' && *current <= 'z' && flag)
+		{
+			*current = *current - 'a' + 'A';
+			flag = 0;
+		}
 		current++;
 	}
 	return (str);
