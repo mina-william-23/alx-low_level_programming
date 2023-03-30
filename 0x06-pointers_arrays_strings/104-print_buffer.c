@@ -32,7 +32,7 @@ void print_buffer(char *b, int size)
 
 			for (i = 0; i < en; i++)
 			{
-				if (*(b + st + i) >= 32 && *(b + st + i) <= 127)
+				if (*(b + st + i) >= 32 && *(b + st + i) <= 126)
 					printf("%c", *(b + st + i));
 				else
 					printf(".");
