@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_buffer - print buffer with size
  * @b: pointer to buffer
