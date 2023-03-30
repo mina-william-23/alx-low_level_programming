@@ -7,15 +7,14 @@
 */
 void print_buffer(char *b, int size)
 {
-	char *s = b;
-	int i;
+	int i, st, en;
 
 	if (size < 0)
+	{
 		printf("\n");
+	}
 	else
 	{
-		int st, en;
-
 		for (st = 0; st < size; st += 10)
 		{
 			en = (size - st < 10) ? size - st : 10;
@@ -42,4 +41,3 @@ void print_buffer(char *b, int size)
 		}
 	}
 }
-
