@@ -2,7 +2,5 @@
 
 ## **Tasks**
 * ### [0. memset](./0-memset.c)
-> Write a function that fills memory with a constant byte.
->> Write
-> > Write
+>> Write a function that fills memory with a constant byte.
 
