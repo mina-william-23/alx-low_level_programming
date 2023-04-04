@@ -17,4 +17,6 @@
     - Write a function that prints the chessboard.
 * ### [7. The line of life is a ragged diagonal between duty and desire](./8-print_diagsums.c)
     - Write a function that prints the sum of the two diagonals of a square matrix of integers.
+* ### [8. Double pointer, double fun](./100-set_string.c)
+    - Write a function that sets the value of a pointer to a char.
 
