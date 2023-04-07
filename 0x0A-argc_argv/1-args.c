@@ -18,7 +18,7 @@ void printnum(int num)
 */
 int main(int argc, char *argv[])
 {
-	void*(argv);
+	argv[0] = argv[0];
 	printnum(argc - 1);
 	_putchar('\n');
 	return (0);
