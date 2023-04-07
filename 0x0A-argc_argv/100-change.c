@@ -9,7 +9,7 @@ void printnum(int num)
 {
 	if (num / 10 != 0)
 		printnum(num / 10);
-	putchar((num % 10) + '0');
+	_putchar((num % 10) + '0');
 }
 /**
  * printstring - print string s
@@ -19,7 +19,7 @@ void printstring(char *s)
 {
 	while (*s)
 		putchar(*s++);
-	putchar('\n');
+	_putchar('\n');
 }
 /**
  * main - main function
