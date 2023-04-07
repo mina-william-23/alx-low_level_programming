@@ -18,7 +18,7 @@ void printnum(int num)
 void printstring(char *s)
 {
 	while (*s)
-		putchar(*s++);
+		_putchar(*s++);
 	_putchar('\n');
 }
 /**
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 		num %= coins[i];
 	}
 	printnum(res);
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
