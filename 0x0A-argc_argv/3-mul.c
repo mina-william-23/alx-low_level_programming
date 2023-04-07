@@ -74,4 +74,4 @@ int main(int argc, char *argv[])
 	printnum(num1 * num2);
 	_putchar('\n');
 	return (0);
-
+}
