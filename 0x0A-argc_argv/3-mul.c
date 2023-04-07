@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 /**
  * _atoi - convert string to number
@@ -33,6 +32,7 @@ int _atoi(const char *s)
 void printnum(int num)
 {
 	unsigned int n = num;
+
 	if (num < 0)
 	{
 		_putchar('-');
@@ -73,4 +73,4 @@ int main(int argc, char *argv[])
 	printnum(num1 * num2);
 	_putchar('\n');
 	return (0);
-}
+
