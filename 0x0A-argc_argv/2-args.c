@@ -7,7 +7,7 @@
 void printstring(char *s)
 {
 	while (*s)
-		putchar(*s++);
+		_putchar(*s++);
 	_putchar('\n');
 }
 /**
