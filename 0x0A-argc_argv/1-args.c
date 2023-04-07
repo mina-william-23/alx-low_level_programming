@@ -19,5 +19,6 @@ void printnum(int num)
 int main(int argc, char *argv[])
 {
 	printnum(argc - 1);
+	_putchar('\n');
 	return (0);
 }
