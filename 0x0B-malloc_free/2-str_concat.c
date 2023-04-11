@@ -11,7 +11,7 @@ unsigned int _strlen(char *s)
 {
 	unsigned int length = 0;
 
-	while (*s)
+	while (s && *s)
 	{
 		length++;
 		s++;
