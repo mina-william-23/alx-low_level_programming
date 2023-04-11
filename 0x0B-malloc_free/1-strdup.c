@@ -9,7 +9,7 @@
  */
 unsigned int _strlen(char *s)
 {
-	int length = 0;
+	unsigned int length = 0;
 
 	while (*s)
 	{
@@ -25,16 +25,22 @@ unsigned int _strlen(char *s)
 */
 char *_strdup(char *str)
 {
-	unsigned int len = _strlen(str), i;
+	unsigned int len, i;
 	char *s;
 
-	if (!len)
+	if (!str)
 		return (0);
+
+	len = _strlen(str);
 	s = malloc(len + 1);
+
 	if (!s)
 		return (0);
+
 	for (i = 0; i < len; i++)
 		s[i] = str[i];
 	s[len] = '\0';
+
 	return (s);
+	
 }
