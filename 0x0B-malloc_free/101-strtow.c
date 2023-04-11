@@ -67,7 +67,6 @@ char **strtow(char *str)
 			s[i][k] = *(tmp + k);
 		s[i][k] = '\0';
 	}
-	free(tmp);
 	/* last element of array is null as requested in task */
 	s[words] = 0;
 	return (s);
