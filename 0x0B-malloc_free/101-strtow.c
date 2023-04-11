@@ -52,10 +52,8 @@ char **strtow(char *str)
 			j++;
 			str++;
 		}
-
 		/* j+1 length of word including \0 */
 		s[i] = malloc(j + 1);
-
 		/* handle malloc failure */
 		if (!s[i])
 		{
