@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * numberOfWords - compute number of words(separated by space) in string
  * @str: string pointer
@@ -33,11 +32,14 @@ unsigned int numberOfWords(char *str)
 char **strtow(char *str)
 {
 	unsigned int words = numberOfWords(str), i, j, k;
-	char **s = malloc((words + 1) * sizeof(char *));
+	char **s;
 	char *tmp;
 
 	/* if number of words is zero or malloc fail return null*/
-	if (!words || !s)
+	if (!words)
+		return (0);
+	s = malloc((words + 1) * sizeof(char *));
+	if (!s)
 		return (0);
 
 	for (i = 0; i < words; i++)
@@ -62,7 +64,6 @@ char **strtow(char *str)
 			free(s);
 			return (0);
 		}
-
 		for (k = 0; k < j; k++)
 			s[i][k] = *(tmp + k);
 		s[i][k] = '\0';
