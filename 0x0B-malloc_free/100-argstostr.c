@@ -27,7 +27,8 @@ unsigned int _strlen(char *s)
  */
 char *argstostr(int ac, char **av)
 {
-	unsigned int totalLen = 0, t = 0, i, j;
+	unsigned int totalLen = 0, t = 0;
+	int i, j;
 	char *s;
 
 	if (ac == 0  || !av)
@@ -49,4 +50,5 @@ char *argstostr(int ac, char **av)
 		s[t++] = '\n';
 	}
 	s[t] = '\0';
+	return (s);
 }
