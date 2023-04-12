@@ -6,9 +6,9 @@
  * @str: string pointer
  * Return: number of words
 */
-unsigned int numberOfWords(char *str)
+int numberOfWords(char *str)
 {
-	unsigned int res = 0;
+	int res = 0;
 	int spaceBefore = 1;
 
 	while (str && *str)
@@ -31,7 +31,7 @@ unsigned int numberOfWords(char *str)
 */
 char **strtow(char *str)
 {
-	unsigned int words = numberOfWords(str), i, j, k;
+	int words = numberOfWords(str), i, j, k;
 	char **s;
 	char *tmp;
 
