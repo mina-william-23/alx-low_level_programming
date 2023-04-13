@@ -7,10 +7,10 @@
 */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned long int i = 0, len = nmemb * sizeof(nmemb);
-	char *p = malloc(sizeof(int) * nmemb);
+	unsigned int i = 0, len = nmemb * size;
+	char *p = malloc(size * nmemb);
 
-	if (nmemb == 0 || size == 0 || !p)
+	if (nmemb == 0 || size == 0 || p == 0)
 		return (0);
 
 	for (i = 0; i < len; i++)
