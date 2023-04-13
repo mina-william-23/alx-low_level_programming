@@ -31,9 +31,7 @@ int main(int argc, char *argv[])
 	len2 = ((argc == 3) ? _computeSize(&argv[2]) : 0);
 	if (argc != 3 || len1 == 0 || len2 == 0)
 	{
-		printf("Error\n");
 		exit(98);
 	}
-	printf('0');
 	return (0);
 }
