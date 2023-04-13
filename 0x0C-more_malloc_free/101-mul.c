@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
 {
 	int len1, len2;
 
-	len1 = argc == 3 ? _computeSize(&argv[1]) : 0;
-	len2 = argc == 3 ? _computeSize(&argv[2]) : 0;
+	len1 = ((argc == 3) ? _computeSize(&argv[1]) : 0);
+	len2 = ((argc == 3) ? _computeSize(&argv[2]) : 0);
 	if (argc != 3 || len1 == 0 || len2 == 0)
 	{
 		printf("Error\n");
