@@ -18,6 +18,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (0);
 
 	while (members--)
-		p[nmemb] = 0;
+		p[members] = 0;
 	return (p);
 }
