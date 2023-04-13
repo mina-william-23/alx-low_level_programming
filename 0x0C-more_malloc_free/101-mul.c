@@ -32,10 +32,9 @@ int _computeSize(char *s)
 
 	while (s && *s)
 	{
-		if (*s >= '0' && *s <= '9')
-			len++;
-		else
+		if (*s < '0' && *s > '9')
 			return (0);
+		len++;
 	}
 	return (len);
 }
@@ -47,19 +46,13 @@ int _computeSize(char *s)
 */
 int main(int argc, char *argv[])
 {
-	char r[] = "Error\n";
 	int len1, len2;
 
-	if (argc != 3)
+	len1 = argc == 3 ? _computeSize(&argv[1]) : 0;
+	len2 = argc == 3 ? _computeSize(&argv[2]) : 0;
+	if (argc != 3 || len1 == 0 || len2 == 0)
 	{
-		_print(r);
-		exit(98);
-	}
-	len1 = _computeSize(&argv[1]);
-	len2 = _computeSize(&argv[2]);
-	if (len1 == 0 || len2 == 0)
-	{
-		_print(r);
+		_print("Error\n");
 		exit(98);
 	}
 	_putchar('0');
