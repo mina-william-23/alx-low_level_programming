@@ -8,8 +8,9 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *p;
+	unsigned long int members = nmemb * size;
 
-	if (nmemb == 0 || size == 0)
+	if (!members)
 		return (0);
 
 	p = malloc(nmemb * size);
