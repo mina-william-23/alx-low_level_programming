@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 /**
  * _computeSize - check string s if all digits or contain other chars
  * @s: string pointer
