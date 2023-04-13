@@ -8,7 +8,7 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned long int i = 0, len = nmemb * size;
-	unsigned char *p = malloc(sizeof(*p) * len);
+	char *p = malloc(sizeof(*p) * len);
 
 	if (nmemb == 0 || size == 0 || !p)
 		return (0);
