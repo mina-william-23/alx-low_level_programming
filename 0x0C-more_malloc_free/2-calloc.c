@@ -16,6 +16,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	/* cast void pointer to unsigned char as memset do to write in it */
 	cc = p;
 	for (i = 0; i < len; i++)
-		*(cc + i) = '0';
+		*(cc + i) = '\0';
 	return (p);
 }
