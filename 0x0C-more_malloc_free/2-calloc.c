@@ -8,14 +8,14 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p = malloc(nmemb * size);
-	unsigned int i = 0;
+	unsigned long int i = 0, len = nmemb * size;
 	unsigned char *cc;
 
 	if (nmemb == 0 || size == 0 || !p)
 		return (0);
 	/* cast void pointer to unsigned char as memset do to write in it */
 	cc = p;
-	for (i = 0; i < nmemb * size; i++)
+	for (i = 0; i < len; i++)
 		*(cc + i) = 0;
 	return (p);
 }
