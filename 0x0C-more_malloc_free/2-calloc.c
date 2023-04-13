@@ -7,13 +7,13 @@
 */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i = 0;
-	unsigned char *p = malloc(sizeof(char) * nmemb * size);
+	unsigned char *p = malloc(nmemb * size);
 
 	if (nmemb == 0 || size == 0 || p == 0)
 		return (0);
 
-	for (i = 0; i < sizeof(char) * nmemb * size; i++)
-		*(p + i) = 0;
-	return (p);
+	nmemb *= size;
+	while (nmemb--)
+		p[nmemb] = 0;
+	return ((void*) p);
 }
