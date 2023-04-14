@@ -1,7 +1,6 @@
-#include <main.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
 /**
  * _putchar - print char
  * @c: character variable to print
@@ -56,6 +55,8 @@ int computeSize(char *s)
 */
 unsigned char *_mul(unsigned char *res, char *s1, char *s2, int l1, int l2)
 {
+	int i, j, k, num;
+
 	for (i = l1 - 1; i >= 0; i--)
 	{
 		k = 0;
@@ -76,7 +77,7 @@ unsigned char *_mul(unsigned char *res, char *s1, char *s2, int l1, int l2)
 			num /= 10;
 		}
 	}
-	return (r);
+	return (res);
 }
 /**
  * main - main entry
@@ -86,7 +87,7 @@ unsigned char *_mul(unsigned char *res, char *s1, char *s2, int l1, int l2)
 */
 int main(int argc, char *argv[])
 {
-	int len1, len2, total, i, j, num = 0, k = 0;
+	int len1, len2, total, i;
 	unsigned char *res;
 
 	if (argc != 3)
