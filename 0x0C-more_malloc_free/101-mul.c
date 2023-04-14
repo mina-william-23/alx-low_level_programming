@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-/**
- * _putchar - print char
- * @c: character variable to print
- * Return: (0) success
-*/
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
+#include "main.h"
 /**
  * _puts - prints string
  * @str: string pointer
