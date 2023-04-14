@@ -120,6 +120,7 @@ int main(int argc, char *argv[])
 	for (; i < total; i++)
 		_putchar(res[i]);
 	_putchar('\n');
+	free(res);
 
 	return (0);
 }
