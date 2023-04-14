@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -36,5 +37,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	argv[0] = argv[0];
+	_puts("Error");
+	exit(98);
 	return (0);
 }
