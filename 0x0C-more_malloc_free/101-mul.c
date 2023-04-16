@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 	total = len1 + len2;
 	res = malloc(total);
 	if (!res)
-		return (0);
+		_puts("Error"), exit(98);
 	/* initialize it with zero */
 	for (i = 0; i < total; i++)
 		res[i] = '0';
