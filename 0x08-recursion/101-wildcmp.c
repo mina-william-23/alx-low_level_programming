@@ -1,4 +1,17 @@
+#include <stdio.h>
 #include "main.h"
+/**
+ * checkWild - move to next direct *
+ * @wild: string has wildcard *
+ * Return: pointer to wild after moving to
+ * last * before next normal char or \0
+ */
+char *checkWild(char *wild)
+{
+	if (*(wild + 1) == '*')
+		checkWild(wild + 1);
+	return (wild);
+}
 /**
  * wildcmp - compare two strings
  * one of them has wildcard *
@@ -8,16 +21,14 @@
  */
 int wildcmp(char *normal, char *wild)
 {
+
     /*  If we reach at the end of both strings, we are done */
 	if (*wild == '\0' && *normal == '\0')
 		return (1);
 
     /*  Make sure to eliminate consecutive '*' */
 	if (*wild == '*')
-	{
-		while (*(wild + 1) == '*')
-			wild++;
-	}
+		wild = checkWild(wild);
 
     /* Make sure that the characters after '*' are present */
     /* in second string. This function assumes that the */
