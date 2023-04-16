@@ -20,7 +20,6 @@ void _puts(char *str)
 int computeSize(char *s)
 {
 	int len = 0;
-	char *src = s;
 
 	while (s && *s)
 	{
