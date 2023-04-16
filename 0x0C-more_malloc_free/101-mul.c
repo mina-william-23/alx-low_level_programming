@@ -85,28 +85,27 @@ int main(int argc, char *argv[])
 	if (len1 == 0 || len2 == 0)
 		_puts("Error"), exit(98);
 
-	/* if either of numbers is zero print zero */
-	if ((len1 == 1 && argv[1][0] == '0') || (len2 == 1 && argv[2][0] == '0'))
-		_puts("0");
-	else
-	{
-		/* maximum length of result of multiply */
-		total = len1 + len2;
-		res = malloc(total);
-		if (!res)
-			return (0);
-		/* initialize it with zero */
-		for (i = 0; i < total; i++)
-			res[i] = '0';
-		/* multiply two argv1, argv2 */
-		res = _mul(res, argv[1], argv[2], len1, len2);
-		/* skip leading zeros */
-		for (i = 0; i < total && res[i] == '0' ; i++)
-		;
-		for (; i < total; i++)
-			_putchar(res[i]);
-		_putchar('\n');
-		free(res);
-	}
+	/* maximum length of result of multiply */
+	total = len1 + len2;
+	res = malloc(total);
+	if (!res)
+		return (0);
+	/* initialize it with zero */
+	for (i = 0; i < total; i++)
+		res[i] = '0';
+	/* multiply two argv1, argv2 */
+	res = _mul(res, argv[1], argv[2], len1, len2);
+	/* skip leading zeros */
+	for (i = 0; i < total && res[i] == '0' ; i++)
+	;
+
+	/* if all was zeros then stand at the last zero */
+	if (i ==  total)
+		i--;
+	for (; i < total; i++)
+		_putchar(res[i]);
+	_putchar('\n');
+	free(res);
+
 	return (0);
 }
