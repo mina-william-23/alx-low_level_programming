@@ -13,20 +13,15 @@ char *_strcpy(char *src)
 
 	if (!src)
 		return (0);
-
 	for (len = 0; src[len]; len++)
 		;
-
 	dest = malloc(len + 1);
 	if (!dest)
 		return (0);
-
 	for (; len >= 0; len--)
 		dest[len] = src[len];
-
 	return (dest);
 }
-
 /**
  * new_dog - create new struct dog and initialize it
  * @name: name of dog
@@ -36,18 +31,23 @@ char *_strcpy(char *src)
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
+	dog_t *dog = malloc(sizeof(*dog));
 
-	if (!name || !owner)
-		return (NULL);
-
-	dog = malloc(sizeof(*dog));
 	if (!dog)
 		return (0);
-
 	dog->name = _strcpy(name);
+	if (dog->name == NULL)
+	{
+		free(dog);
+		return (NULL);
+	}
 	dog->owner = _strcpy(owner);
+	if (dog->owner == NULL)
+	{
+		free(dog->name);
+		free(dog);
+		return (NULL);
+	}
 	dog->age = age;
-
 	return (dog);
 }
