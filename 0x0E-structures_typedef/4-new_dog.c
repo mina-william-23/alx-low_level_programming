@@ -36,24 +36,17 @@ char *_strcpy(char *src)
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog = malloc(sizeof(*dog));
+	dog_t *dog;
 
+	if (!name || !owner)
+		return (NULL);
+
+	dog = malloc(sizeof(*dog));
 	if (!dog)
 		return (0);
 
 	dog->name = _strcpy(name);
-	if (dog->name == NULL)
-	{
-		free(dog);
-		return (NULL);
-	}
 	dog->owner = _strcpy(owner);
-	if (dog->owner == NULL)
-	{
-		free(dog->name);
-		free(dog);
-		return (NULL);
-	}
 	dog->age = age;
 
 	return (dog);
