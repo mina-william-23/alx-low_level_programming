@@ -10,7 +10,7 @@
 void print_all(const char * const format, ...)
 {
 	char *s, *sep;
-	unsigned int j = 0, flag;
+	unsigned int j = 0;
 	va_list args;
 
 	if (format)
@@ -19,7 +19,6 @@ void print_all(const char * const format, ...)
 		sep = "";
 		while (format[j])
 		{
-			flag = 1;
 			switch (format[j])
 			{
 				case 'i':
@@ -40,11 +39,11 @@ void print_all(const char * const format, ...)
 					printf("%s%s", sep, s);
 					break;
 				default:
-					flag = 0;
+					j++;
+					continue;
 			}
 			j++;
-			if (flag)
-				sep = ", ";
+			sep = ", ";
 		}
 		va_end(args);
 	}
