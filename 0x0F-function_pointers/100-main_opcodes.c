@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	p = (char *)main;
 	for (j = 0; j < i; j++)
 	{
-		printf("%02hhx", *p);
+		printf("%02x", (unsigned char)*p);
 		if (j != i - 1)
 			putchar(' ');
 		p++;
