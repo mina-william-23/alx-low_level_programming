@@ -13,33 +13,36 @@ void print_all(const char * const format, ...)
 	unsigned int j = 0;
 	va_list args;
 
-	sep = "";
-	va_start(args, format);
-	while (format && format[j])
+	if (format)
 	{
-		switch (format[j])
+		va_start(args, format);
+		sep = "";
+		while (format[j])
 		{
-			case 'i':
-				printf("%s%d", sep, va_arg(args, int));
-				break;
-			case 'f':
-			/* float gets promote to double that's how va_arg works */
-				printf("%s%f", sep, va_arg(args, double));
-				break;
-			case 'c':
-			/* any short, char datatype small than int promoted to int */
-				printf("%s%c", sep, va_arg(args, int));
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				if (!s)
-					s = "(nil)";
-				printf("%s%s", sep, s);
-				break;
+			switch (format[j])
+			{
+				case 'i':
+					printf("%s%d", sep, va_arg(args, int));
+					break;
+				case 'f':
+				/* float gets promote to double that's how va_arg works */
+					printf("%s%f", sep, va_arg(args, double));
+					break;
+				case 'c':
+				/* any short, char datatype small than int promoted to int */
+					printf("%s%c", sep, va_arg(args, int));
+					break;
+				case 's':
+					s = va_arg(args, char *);
+					if (!s)
+						s = "(nil)";
+					printf("%s%s", sep, s);
+					break;
+			}
+			j++;
+			sep = ", ";
 		}
-		j++;
-		sep = ", ";
+		va_end(args);
 	}
-	va_end(args);
 	putchar('\n');
 }
