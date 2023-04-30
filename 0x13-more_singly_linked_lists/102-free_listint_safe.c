@@ -7,6 +7,7 @@
 size_t free_listint_safe(listint_t **h)
 {
 	listint_t *slow, *fast, *loopstart, *temp, *current;
+	size_t sz = 0;
 
 	slow = fast = *h;
 	/* detect if there is a loop */
@@ -37,8 +38,9 @@ size_t free_listint_safe(listint_t **h)
 		temp = current->next;
 		free(current);
 		current = temp;
+		sz++;
 	}
 
 	*h = NULL;
-	return (0);
+	return (sz);
 }
