@@ -8,7 +8,7 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *slow, *fast;
 
-	if (!head || !head->next)
+	if (!head)
 		return (NULL);
 	slow = head;
 	fast = head;
@@ -31,7 +31,9 @@ listint_t *find_listint_loop(listint_t *head)
 			slow = slow->next;
 			fast = fast->next;
 		}
-		return (slow->next);
+		/* if slow == fast that means that both standing at loop start*/
+		/* if not that mean that next one is that loop start */
+		return (slow == fast ? slow ? slow->next);
 	}
 	return (NULL);
 }
