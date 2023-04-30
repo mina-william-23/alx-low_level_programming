@@ -33,7 +33,7 @@ listint_t *find_listint_loop(listint_t *head)
 		}
 		/* if slow == fast that means that both standing at loop start*/
 		/* if not that mean that next one is that loop start */
-		return (slow == fast ? slow ? slow->next);
+		return (slow == fast ? slow : slow->next);
 	}
 	return (NULL);
 }
