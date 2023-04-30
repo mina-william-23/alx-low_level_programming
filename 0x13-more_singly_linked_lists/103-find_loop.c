@@ -10,7 +10,8 @@ listint_t *find_listint_loop(listint_t *head)
 
 	if (!head)
 		return (NULL);
-	slow = fast = head;
+	slow = head;
+	fast = head;
 	/* detect if there is a loop */
 	while (fast && fast->next)
 	{
