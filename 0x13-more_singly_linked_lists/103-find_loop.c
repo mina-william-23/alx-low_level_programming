@@ -6,7 +6,7 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *slow, *fast, *loopstart;
+	listint_t *slow, *fast;
 
 	slow = fast = head;
 	/* detect if there is a loop */
@@ -20,13 +20,13 @@ listint_t *find_listint_loop(listint_t *head)
 	/* if there is a loop break it to nomral one */
 	if (slow == fast)
 	{
-		loopstart = head;
-		/* distance from slow and fast meet  to loop start equal */
+		fast = head;
+		/* distance from slow and fast meet to loop start equal */
 		/* distance from start to loop start */
-		while (slow->next != loopstart->next)
+		while (slow->next != fast->next)
 		{
 			slow = slow->next;
-			loopstart = loopstart->next;
+			fast = fast->next;
 		}
 		return (slow->next);
 	}
