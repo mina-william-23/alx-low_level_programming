@@ -26,10 +26,18 @@ size_t free_listint_safe(listint_t **h)
 		loopstart = *h;
 		/* distance from slow and fast meet  to loop start equal */
 		/* distance from start to loop start */
-		while (slow->next != loopstart->next)
+		if (slow == loopstart)
 		{
-			slow = slow->next;
-			loopstart = loopstart->next;
+			while (slow->next != loopstart)
+				slow = slow->next;
+		}
+		else
+		{
+			while (slow->next != loopstart->next)
+                	{
+                        	slow = slow->next;
+                        	loopstart = loopstart->next;
+                	}
 		}
 		slow->next = NULL;
 	}
