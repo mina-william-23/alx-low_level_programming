@@ -6,26 +6,19 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *slow, *fast, *loopstart, *temp, *current;
+	listint_t *slow = *h, *fast = *h, *loopstart, *temp, *current;
 	size_t sz = 0;
 
 	if (!h || !*h)
 		return (sz);
-	slow = fast = *h;
-	/* detect if there is a loop */
 	while (fast && fast->next)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (slow == fast)
-			break;
+		slow = slow->next, fast = fast->next->next;
+		if (slow == fast) break;
 	}
-	/* if there is a loop break it to nomral one */
 	if (slow == fast)
 	{
 		loopstart = *h;
-		/* distance from slow and fast meet  to loop start equal */
-		/* distance from start to loop start */
 		if (slow == loopstart)
 		{
 			while (slow->next != loopstart)
@@ -34,14 +27,10 @@ size_t free_listint_safe(listint_t **h)
 		else
 		{
 			while (slow->next != loopstart->next)
-                	{
-                        	slow = slow->next;
-                        	loopstart = loopstart->next;
-                	}
+                        	slow = slow->next, loopstart = loopstart->next;
 		}
 		slow->next = NULL;
 	}
-	/* free normal linked list as usual */
 	current = *h;
 	while (current)
 	{
@@ -50,7 +39,6 @@ size_t free_listint_safe(listint_t **h)
 		current = temp;
 		sz++;
 	}
-
 	*h = NULL;
 	return (sz);
 }
