@@ -12,5 +12,5 @@ int get_endianness(void)
 	/* if it little endian it will have 00000001 */
 	char *p = (char *) &a;
 
-	return (*p ? 0 : 1);
+	return (*p ? 1 : 0);
 }
