@@ -3,7 +3,7 @@
 /**
  * get_dnodeint_at_index - get node at index
  * @head: head of list
- * index: index of node wanted
+ * @index: index of node wanted
  * Return: node at that index
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
