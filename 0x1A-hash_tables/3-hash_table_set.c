@@ -46,7 +46,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	idx = key_index((const unsigned char *)key, ht->size);
-	
+
 	fix_duplicate_key = handle_dup_key(ht->array[idx], key, value);
 	if (fix_duplicate_key != 2)
 		return (fix_duplicate_key);
