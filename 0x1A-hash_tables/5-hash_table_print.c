@@ -10,18 +10,17 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *head;
 	char *delim = "";
 
+	if (!ht)
+		return;
 	printf("{");
-	if (ht)
+	for (i = 0; i < ht->size; i++)
 	{
-		for (i = 0; i < ht->size; i++)
+		head = ht->array[i];
+		while (head)
 		{
-			head = ht->array[i];
-			while (head)
-			{
-				printf("%s'%s': '%s'", delim, head->key, head->value);
-				delim = ", ";
-				head = head->next;
-			}
+			printf("%s'%s': '%s'", delim, head->key, head->value);
+			delim = ", ";
+			head = head->next;
 		}
 	}
 	printf("}\n");
