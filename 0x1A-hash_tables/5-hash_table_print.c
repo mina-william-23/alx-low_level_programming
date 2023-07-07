@@ -24,7 +24,7 @@ void hash_table_print(const hash_table_t *ht)
 				not_first_element = 1;
 				head = head->next;
 			}
-		}	
+		}
 	}
 	printf("}\n");
 }
