@@ -44,7 +44,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->value = strdup(value);
 	new_node->next = NULL;
 
-	idx = key_index(key, ht->size);
+	idx = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[idx] == NULL)
 		ht->array[idx] = new_node;
 	else
