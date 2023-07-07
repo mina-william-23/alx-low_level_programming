@@ -8,7 +8,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i;
 	hash_node_t *head;
-	int not_first_element = 0;
+	char *delim = "";
 
 	printf("{");
 	if (ht)
@@ -18,10 +18,8 @@ void hash_table_print(const hash_table_t *ht)
 			head = ht->array[i];
 			while (head)
 			{
-				if (not_first_element)
-					printf(", ");
-				printf("'%s': '%s'", head->key, head->value);
-				not_first_element = 1;
+				printf("%s'%s': '%s'", delim, head->key, head->value);
+				delim = ", ";
 				head = head->next;
 			}
 		}
