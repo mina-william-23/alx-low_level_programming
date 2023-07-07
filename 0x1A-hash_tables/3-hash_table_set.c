@@ -36,7 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht || !key)
 		return (0);
-	
+
 	idx = key_index((const unsigned char *)key, ht->size);
 	if (handle_dup_key(ht->array[idx], key, value) == 1)
 		return (1);
