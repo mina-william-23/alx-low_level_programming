@@ -2,16 +2,17 @@
 /**
  * handle_collision - test if collision in hash table
  * @head: head of index of collision
- * @value: value to search for
+ * @key: key to search for
+ * @value: value fo key
  * Return: (1) collision resolved (0) no collision
  */
-int handle_collision(hash_node_t *head, const char *value)
+int handle_collision(hash_node_t *head, const char *key, const char *value)
 {
 	hash_node_t *tmp = head;
 
 	while (tmp)
 	{
-		if (strcmp(tmp->value, value) == 0)
+		if (strcmp(tmp->key, key) == 0)
 		{
 			free(tmp->value);
 			tmp->value = strdup(value);
@@ -48,7 +49,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = new_node;
 	else
 	{
-		if (handle_collision(ht->array[idx], value) == 1)
+		if (handle_collision(ht->array[idx], key, value) == 1)
 		{
 			free(new_node->key);
 			free(new_node->value);
@@ -59,6 +60,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = new_node;
 	}
 	return (1);
-
 
 }
