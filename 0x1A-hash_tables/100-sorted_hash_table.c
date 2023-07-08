@@ -91,7 +91,7 @@ void shash_table_set_sort(shash_table_t *ht, shash_node_t *new_node)
 	else
 	{
 		head = ht->shead;
-		while (strcmp(new_node->key, head->key) == 1)
+		while (head && strcmp(new_node->key, head->key) >= 0)
 			head = head->snext;
 		new_node->snext = head;
 		new_node->sprev = head->sprev;
