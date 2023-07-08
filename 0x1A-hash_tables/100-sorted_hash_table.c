@@ -1,36 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * hash_djb2 - implementation of the djb2 algorithm
- * @str: string used to generate hash value
- *
- * Return: hash value
- */
-unsigned long int hash_djb2(const unsigned char *str)
-{
-	unsigned long int hash;
-	int c;
-
-	hash = 5381;
-	while ((c = *str++))
-	{
-		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-	}
-	return (hash);
-}
-
-/**
- * key_index - create hash from key
- * @key: string key
- * @size: size of hash table
- * Return: hash of the key
- */
-unsigned long int key_index(const unsigned char *key, unsigned long int size)
-{
-	return (hash_djb2(key) % size);
-}
-
-/**
  * shash_table_create - create hash table
  * @size: size of hashtable
  * Return: NULL if failed malloc else pointer to hash table
@@ -68,7 +38,7 @@ shash_table_t *shash_table_create(unsigned long int size)
  * @value: value fo key
  * Return: (2 or 1) duplicate key resolved (0) error
  */
-int handle_dup_key(shash_node_t *head, const char *key, const char *value)
+int handle_dup_key2(shash_node_t *head, const char *key, const char *value)
 {
 	shash_node_t *tmp = head;
 	char *new_value = NULL;
@@ -99,7 +69,7 @@ int handle_dup_key(shash_node_t *head, const char *key, const char *value)
  */
 void shash_table_set_sort(shash_table_t *ht, shash_node_t *new_node)
 {
-	shash_node_t *head, *temp;
+	shash_node_t *head;
 
 	if (ht->shead == NULL)
 	{
@@ -147,7 +117,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	idx = key_index((const unsigned char *)key, ht->size);
 
-	fix_duplicate_key = handle_dup_key(ht->array[idx], key, value);
+	fix_duplicate_key = handle_dup_key2(ht->array[idx], key, value);
 	if (fix_duplicate_key != 2)
 		return (fix_duplicate_key);
 
@@ -204,7 +174,6 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-	unsigned long int i;
 	shash_node_t *head;
 	char *delim = "";
 
@@ -225,7 +194,6 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	unsigned long int i;
 	shash_node_t *tail;
 	char *delim = "";
 
