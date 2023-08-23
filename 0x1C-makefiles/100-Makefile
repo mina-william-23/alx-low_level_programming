@@ -9,7 +9,8 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 
 NAME = school
-RM = rm -f
+# ? search for RM in evn first then if not found set it
+RM ?= rm -f 
 
 # ----------- variables end -------------------
 .PHONY: all clean oclean fclean re
@@ -19,11 +20,7 @@ all: $(NAME)
 # $^ means all OBJ
 # $@ means NAME
 $(NAME): m.h $(OBJ)
-	$(CC)  -Wall -Werror -Wextra -pedantic $^ -o $@
-
-# this mean any file .o depend on file .c and if that .c has more recent modify than .o then action excuted
-#%.o: %.c
-#	$(CC) -Wall -Werror -Wextra -pedantic -c -o $@ $<
+	$(CC)  -Wall -Werror -Wextra -pedantic $(OBJ) -o $@
 
 # to make command ignore errors with prefix it with - like -rm but rm -f also ignore errors
 clean :
