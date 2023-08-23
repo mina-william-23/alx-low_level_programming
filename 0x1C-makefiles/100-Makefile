@@ -9,9 +9,6 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 
 NAME = school
-ifndef RM
-	override RM = rm -f
-endif
 # ----------- variables end -------------------
 .PHONY: all clean oclean fclean re
 
