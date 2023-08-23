@@ -9,7 +9,7 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 
 NAME = school
-# RM = rm -f
+RM = rm -f
 
 # ----------- variables end -------------------
 .PHONY: all clean oclean fclean re
