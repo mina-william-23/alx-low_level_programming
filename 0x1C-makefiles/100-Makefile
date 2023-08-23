@@ -1,15 +1,27 @@
 CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+SRC = main.c school.c 
+
+# OBJ = main.o school.o
+# this can also be achieved by technique for replacement of .c with .o of SRC
+# this technique is presented by makefiles
+OBJ = $(SRC:.c=.o)
+
+NAME = school
+
+# ----------- variables end -------------------
 .PHONY: all clean oclean fclean re
 
-all: m.h $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+all: $(NAME)
 
-clean:
+# $^ means all OBJ
+# $@ means NAME
+$(NAME): m.h $(OBJ)
+	$(CC) $(OBJ) -o $@
+
+# to make command ignore errors with prefix it with - like -rm but rm -f also ignore errors
+clean :
 	$(RM) *~ $(NAME)
 
 oclean:
@@ -17,4 +29,4 @@ oclean:
 
 fclean: clean oclean
 
-re: fclean all 
+re : oclean all
