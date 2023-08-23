@@ -16,5 +16,3 @@ def island_perimeter(grid):
                 if w != width - 1 and grid[w][ln] != grid[w + 1][ln]:
                     peri += 1
     return peri
-
-
