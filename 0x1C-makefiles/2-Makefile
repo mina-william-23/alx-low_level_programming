@@ -1,5 +1,8 @@
 CC = gcc
 SRC = main.c school.c 
+# OBJ = main.o school.o
+# this can also be achieved by technique for replacement of .c with .o of SRC
+# this technique is presented by makefiles
 OBJ = $(SRC:.c=.o)
 NAME = school
 
