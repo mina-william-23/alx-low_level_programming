@@ -12,30 +12,37 @@
 int advanced_binary(int *array, size_t size, int value)
 {
 	size_t i, left, right;
+	int ans;
 
 	if (array == NULL)
 		return (-1);
 
 	left = 0;
 	right = size - 1;
+	ans = -1;
 	printf("Searching in array: ");
 	for (i = left; i < right; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
-	if (size == 1)
-	{
-		if (array[0] == value)
-			return (0);
-		else
-			return (-1);
-	}
-
 	i = left + (right - left) / 2;
-	if (array[i] < value)
-		return (i + 1 + advanced_binary(array + (int) i + 1, size - i - 1, value));
-	else if (array[i] >= value)
-		return (advanced_binary(array, i + 1, value));
-	return (-1);
+	if (size == 1)
+		ans = array[i] == value ? (int)i : -1;
+	else if (array[i] == value)
+	{
+		if (array[i - 1] == value)
+			ans = (advanced_binary(array, i + 1, value));
+		else
+			ans = i;
+	}
+	else if (array[i] < value)
+	{
+		ans = advanced_binary(array + i + 1, size - i - 1, value);
+		if (ans != -1)
+			ans = (int)i + 1 + ans;
+	}
+	else if (array[i] > value)
+		ans = advanced_binary(array, i, value);
+	return (ans);
 }
 /* iterative way */
 /**
