@@ -19,12 +19,11 @@ int helper(int *array, size_t left, size_t right, int value)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
 	i = left + (right - left) / 2;
-	if (array[i] < value)
-		return (helper(array, i + 1, right, value));
-	if (array[i] > value)
-		return (helper(array, left, i - 1, value));
 	if (array[i] == value && left == i)
 		return (i);
+	if (array[i] < value)
+		return (helper(array, i + 1, right, value));
+	/* if (array[i] >= value) */
 	return (helper(array, left, i, value));
 }
 /**
