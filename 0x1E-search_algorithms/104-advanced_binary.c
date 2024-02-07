@@ -28,7 +28,7 @@ int helper(int *array, size_t left, size_t right, int value)
 			return (helper(array, i + 1, right, value));
 		if (array[i] > value)
 			return (helper(array, left, i - 1, value));
-		if (left == i)
+		if (array[i] == value && left == i)
 			return (i);
 		return (helper(array, left, i, value));
 	}
