@@ -1,5 +1,40 @@
 #include "search_algos.h"
 /**
+* helper - searches for a value in an array of integers
+* using the Binary search algorithm
+* @array: pointer to head of list
+* @left: low
+* @right: high
+* @value: value to search
+* Return: found value or -1
+*/
+int helper(int *array, size_t left, size_t right, int value)
+{
+	size_t i;
+
+	if (left == right)
+	{
+		printf("Searching in array: %d\n", array[left]);
+		return (array[left] == value ? (int)left : -1);
+	}
+	if (left < right)
+	{
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[i]);
+		i = left + (right - left) / 2;
+		if (array[i] < value)
+			return (helper(array, i + 1, right, value));
+		if (array[i] > value)
+			return (helper(array, left, i - 1, value));
+		if (left == i)
+			return (i);
+		return (helper(array, left, i, value));
+	}
+	return (-1);
+}
+/**
 * advanced_binary - searches for a value in an array of integers
 * using the Binary search algorithm
 * return the index of the first value in the array
@@ -11,38 +46,10 @@
 */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t i, left, right;
-	int ans;
-
 	if (array == NULL)
 		return (-1);
 
-	left = 0;
-	right = size - 1;
-	ans = -1;
-	printf("Searching in array: ");
-	for (i = left; i < right; i++)
-		printf("%d, ", array[i]);
-	printf("%d\n", array[i]);
-	i = left + (right - left) / 2;
-	if (size == 1)
-		ans = array[i] == value ? (int)i : -1;
-	else if (array[i] == value)
-	{
-		if (array[i - 1] == value)
-			ans = (advanced_binary(array, i + 1, value));
-		else
-			ans = i;
-	}
-	else if (array[i] < value)
-	{
-		ans = advanced_binary(array + i + 1, size - i - 1, value);
-		if (ans != -1)
-			ans = (int)i + 1 + ans;
-	}
-	else if (array[i] > value)
-		ans = advanced_binary(array, i, value);
-	return (ans);
+	return (helper(array, 0, size - 1, value));
 }
 /* iterative way*/
 
