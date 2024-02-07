@@ -12,27 +12,20 @@ int helper(int *array, size_t left, size_t right, int value)
 {
 	size_t i;
 
-	if (left == right)
-	{
-		printf("Searching in array: %d\n", array[left]);
-		return (array[left] == value ? (int)left : -1);
-	}
-	if (left < right)
-	{
-		printf("Searching in array: ");
-		for (i = left; i < right; i++)
-			printf("%d, ", array[i]);
-		printf("%d\n", array[i]);
-		i = left + (right - left) / 2;
-		if (array[i] < value)
-			return (helper(array, i + 1, right, value));
-		if (array[i] > value)
-			return (helper(array, left, i - 1, value));
-		if (array[i] == value && left == i)
-			return (i);
-		return (helper(array, left, i, value));
-	}
-	return (-1);
+	if (left > right)
+		return (-1);
+	printf("Searching in array: ");
+	for (i = left; i < right; i++)
+		printf("%d, ", array[i]);
+	printf("%d\n", array[i]);
+	i = left + (right - left) / 2;
+	if (array[i] < value)
+		return (helper(array, i + 1, right, value));
+	if (array[i] > value)
+		return (helper(array, left, i - 1, value));
+	if (array[i] == value && left == i)
+		return (i);
+	return (helper(array, left, i, value));
 }
 /**
 * advanced_binary - searches for a value in an array of integers
